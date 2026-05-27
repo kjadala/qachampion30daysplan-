@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30-Day Champions Training Plan — RealPage AI Enablement</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --surface2: #f8f9fb;
+  --border: #e2e5ea;
+  --ink: #111827;
+  --muted: #6b7280;
+  --subtle: #9ca3af;
+  --brand: #1e3a5f;
+  --brand2: #2563eb;
+  --teal: #0d9488;
+  --purple: #7c3aed;
+  --amber: #d97706;
+  --green: #059669;
+  --red: #dc2626;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,.07), 0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.10);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.6;
+}
+/* HEADER */
+.header {
+  background: var(--brand);
+  color: #fff;
+  padding: 36px 48px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  right: -80px; top: -80px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(37,99,235,.25), transparent 70%);
+  border-radius: 50%;
+}
+.header-meta { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #93c5fd; margin-bottom: 10px; }
+.header h1 { font-size: 28px; font-weight: 600; line-height: 1.2; margin-bottom: 8px; position: relative; }
+.header p { color: #bfdbfe; font-size: 13px; max-width: 560px; position: relative; }
+.header-badges { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; position: relative; }
+.badge {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #e0f2fe;
+}
+/* LAYOUT */
+.container { max-width: 1200px; margin: 0 auto; padding: 32px 48px 64px; }
+/* SECTION TITLE */
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 36px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+/* DIAGRAM CARD */
+.diagram-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  margin-bottom: 28px;
+}
+.diagram-card svg { width: 100%; height: auto; display: block; }
+/* PHASE GRID */
+.phase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 28px; }
+.phase-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: box-shadow .18s, transform .18s;
+}
+.phase-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.phase-header {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.phase-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.phase-label { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.phase-title { font-size: 15px; font-weight: 600; color: var(--ink); }
+.phase-body { padding: 16px 18px; }
+.phase-body ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.phase-body ul li { display: flex; gap: 8px; font-size: 13px; color: var(--muted); align-items: flex-start; }
+.phase-body ul li::before { content: '—'; color: var(--subtle); flex-shrink: 0; margin-top: 1px; }
+.phase-footer { padding: 10px 18px; background: var(--surface2); border-top: 1px solid var(--border); display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { background: var(--bg); border: 1px solid var(--border); border-radius: 99px; padding: 3px 10px; font-size: 11px; font-weight: 500; color: var(--muted); }
+/* ARCHITECT GRID */
+.arch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 28px; }
+.arch-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  transition: box-shadow .18s, transform .18s;
+}
+.arch-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.arch-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; font-weight: 700; color: #fff;
+  margin-bottom: 10px;
+}
+.arch-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.arch-role { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+.arch-stat { font-size: 22px; font-weight: 700; color: var(--brand); line-height: 1; }
+.arch-stat-label { font-size: 11px; color: var(--subtle); margin-top: 2px; }
+.arch-focus { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.arch-focus-title { font-size: 10px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--subtle); margin-bottom: 6px; }
+.arch-focus ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.arch-focus ul li { font-size: 12px; color: var(--muted); display: flex; align-items: flex-start; gap: 7px; }
+.focus-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+/* CRITERIA TABLE */
+.criteria-table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.criteria-table table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.criteria-table th:nth-child(1) { width: 18%; }
+.criteria-table th:nth-child(2) { width: 32%; }
+.criteria-table th:nth-child(3) { width: 32%; }
+.criteria-table th:nth-child(4) { width: 18%; }
+.criteria-table th { background: var(--surface2); padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); text-align: left; border-bottom: 1px solid var(--border); }
+.criteria-table td { padding: 11px 16px; font-size: 13px; color: var(--ink); border-bottom: 1px solid var(--border); vertical-align: top; }
+.criteria-table tr:last-child td { border-bottom: none; }
+.criteria-table tr:hover td { background: var(--surface2); }
+.priority-badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.p-high { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+.p-med  { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+.p-low  { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+/* TIMELINE */
+.timeline { display: flex; gap: 0; margin-bottom: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.tl-col { flex: 1; padding: 18px 16px; border-right: 1px solid var(--border); }
+.tl-col:last-child { border-right: none; }
+.tl-week { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--subtle); margin-bottom: 4px; }
+.tl-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.tl-items { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.tl-items li { font-size: 11px; color: var(--muted); display: flex; gap: 6px; align-items: flex-start; }
+.tl-items li::before { content: '·'; font-size: 16px; line-height: 1; color: var(--subtle); flex-shrink: 0; }
+.tl-bar { height: 4px; border-radius: 99px; margin-top: 12px; }
+/* NOTES / UPDATES SECTION */
+.updates-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.updates-header { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.updates-header h3 { font-size: 14px; font-weight: 600; color: var(--ink); }
+.add-btn {
+  background: var(--brand2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .15s;
+}
+.add-btn:hover { background: #1d4ed8; }
+.updates-list { padding: 0; }
+.update-item { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; gap: 14px; align-items: flex-start; }
+.update-item:last-child { border-bottom: none; }
+.update-date { font-size: 10px; font-family: 'DM Mono', monospace; color: var(--subtle); white-space: nowrap; padding-top: 2px; min-width: 70px; }
+.update-tag { font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+.update-content { flex: 1; }
+.update-content .update-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.update-content .update-desc { font-size: 12px; color: var(--muted); }
+.update-actions { display: flex; gap: 6px; }
+.icon-btn { background: none; border: 1px solid var(--border); border-radius: 6px; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; transition: all .15s; }
+.icon-btn:hover { background: var(--bg); color: var(--ink); }
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 100; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal { background: var(--surface); border-radius: 16px; padding: 28px; width: 480px; max-width: 90vw; box-shadow: var(--shadow-lg); transform: translateY(12px); transition: transform .2s; }
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal h3 { font-size: 17px; font-weight: 600; margin-bottom: 18px; color: var(--ink); }
+.form-row { margin-bottom: 14px; }
+.form-label { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; display: block; }
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: border-color .15s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--brand2); }
+.form-textarea { resize: vertical; min-height: 80px; }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 20px; }
+.btn-cancel { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; color: var(--muted); transition: all .15s; }
+.btn-cancel:hover { border-color: var(--muted); color: var(--ink); }
+.btn-save { background: var(--brand2); color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background .15s; }
+.btn-save:hover { background: #1d4ed8; }
+/* STATUS BAR */
+.status-bar { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px 24px; display: flex; gap: 32px; align-items: center; margin-bottom: 28px; flex-wrap: wrap; }
+.stat-item { display: flex; flex-direction: column; gap: 2px; }
+.stat-num { font-size: 22px; font-weight: 700; color: var(--brand); line-height: 1; }
+.stat-lbl { font-size: 11px; color: var(--muted); }
+.stat-divider { width: 1px; height: 36px; background: var(--border); }
+/* PROGRESS BAR */
+.progress-wrap { flex: 1; min-width: 180px; }
+.progress-label { font-size: 11px; color: var(--muted); margin-bottom: 6px; display: flex; justify-content: space-between; }
+.progress-track { height: 6px; background: var(--bg); border-radius: 99px; overflow: hidden; border: 1px solid var(--border); }
+.progress-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--brand2), var(--teal)); transition: width .4s; }
+/* WEEK BY WEEK */
+.wbw-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+.wbw-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: box-shadow .18s; }
+.wbw-card:hover { box-shadow: var(--shadow-lg); }
+.wbw-header { padding: 18px 22px 14px; border-left: 4px solid #e2e5ea; }
+.wbw-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.wbw-phase { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; }
+.wbw-days { font-size: 11px; color: var(--subtle); font-family: 'DM Mono', monospace; }
+.wbw-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.wbw-desc { font-size: 12px; color: var(--muted); line-height: 1.6; max-width: 720px; }
+.wbw-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--border); }
+.wbw-col { padding: 16px 22px; }
+.wbw-col:first-child { border-right: 1px solid var(--border); }
+.wbw-col-title { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--subtle); margin-bottom: 10px; }
+.wbw-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.wbw-list li { font-size: 12px; color: var(--muted); display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+.wbw-list li::before { content: '→'; color: var(--subtle); flex-shrink: 0; font-size: 11px; margin-top: 1px; }
+.wbw-footer { padding: 10px 22px; background: var(--surface2); border-top: 1px solid var(--border); }
+.wbw-outcome { font-size: 11px; font-weight: 600; color: var(--teal); }
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .container { padding: 20px 18px 48px; }
+  .header { padding: 24px 20px; }
+  .timeline { flex-direction: column; }
+  .tl-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .tl-col:last-child { border-bottom: none; }
+  .status-bar { gap: 18px; }
+  .stat-divider { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-meta">RealPage AI Enablement · 2026</div>
+  <h1>30-Day Champions Training Plan</h1>
+  <p>A structured rollout to train and certify 30 pod-level champions through 4 architects, cascading AI and GitHub workflow knowledge across all pods.</p>
+  <div class="header-badges">
+    <span class="badge">4 Architects</span>
+    <span class="badge">30 Champions</span>
+    <span class="badge">GitHub Workflows</span>
+    <span class="badge">QA STLC Phases</span>
+    <span class="badge">AI Adoption</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div class="stat-item"><span class="stat-num" id="stat-total">40</span><span class="stat-lbl">Total days (pre-phase + plan)</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">4</span><span class="stat-lbl">Architects training</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">30</span><span class="stat-lbl">Pod champions to certify</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><span class="stat-num">~8</span><span class="stat-lbl">Champions per architect</span></div>
+    <div class="stat-divider"></div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Overall progress</span><span id="progress-pct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <!-- PHASE DIAGRAM -->
+  <div class="section-title">Plan diagram</div>
+  <div class="diagram-card">
+    <svg viewBox="0 0 680 760" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <!-- PRE-PHASE HEADING -->
+      <text x="340" y="22" text-anchor="middle" fill="#6b7280" font-family="DM Sans,sans-serif" font-size="11" font-weight="600" letter-spacing="1">PRE-PHASE — DAYS 1–10</text>
+      <!-- Architect Training -->
+      <rect x="60" y="32" width="560" height="52" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="340" y="54" text-anchor="middle" fill="#1e40af" font-family="DM Sans,sans-serif" font-size="13" font-weight="600">4 architects trained on GitHub workflow creation</text>
+      <text x="340" y="72" text-anchor="middle" fill="#3b82f6" font-family="DM Sans,sans-serif" font-size="11">Covering QA STLC phases — unit, integration, regression, release</text>
+      <!-- Two parallel boxes -->
+      <line x1="192" y1="84" x2="192" y2="106" stroke="#9ca3af" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="488" y1="84" x2="488" y2="106" stroke="#9ca3af" stroke-width="1" marker-end="url(#arr)"/>
+      <!-- Define Criteria -->
+      <rect x="60" y="106" width="256" height="52" rx="8" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1"/>
+      <text x="188" y="128" text-anchor="middle" fill="#5b21b6" font-family="DM Sans,sans-serif" font-size="13" font-weight="600">Architects define selection criteria</text>
+      <text x="188" y="146" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="11">Skills, availability, pod influence</text>
+      <!-- QA Managers nominate -->
+      <rect x="364" y="106" width="256" height="52" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1"/>
+      <text x="492" y="128" text-anchor="middle" fill="#065f46" font-family="DM Sans,sans-serif" font-size="13" font-weight="600">Pod QA Managers nominate champions</text>
+      <text x="492" y="146" text-anchor="middle" fill="#0d9488" font-family="DM Sans,sans-serif" font-size="11">~30 champions identified across all pods</text>
+      <!-- divider -->
+      <line x1="60" y1="178" x2="620" y2="178" stroke="#e2e5ea" stroke-width="1" stroke-dasharray="5 4"/>
+      <text x="340" y="198" text-anchor="middle" fill="#111827" font-family="DM Sans,sans-serif" font-size="12" font-weight="600" letter-spacing=".5">30-DAY CHAMPIONS TRAINING PLAN</text>
+      <!-- Week 1 -->
+      <text x="60" y="224" fill="#9ca3af" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" letter-spacing="1">WEEK 1</text>
+      <line x1="340" y1="206" x2="340" y2="228" stroke="#9ca3af" stroke-width="1" marker-end="url(#arr)"/>
+      <rect x="60" y="228" width="560" height="52" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text x="340" y="250" text-anchor="middle" fill="#1e40af" font-family="DM Sans,sans-serif" font-size="13" font-weight="600">Onboarding and foundations</text>
+      <text x="340" y="268" text-anchor="middle" fill="#3b82f6" font-family="DM Sans,sans-serif" font-size="11">All 30 champions — group sessions on AI agents and realpage-powerup</text>
+      <!-- Week 2-3 -->
+      <line x1="340" y1="280" x2="340" y2="304" stroke="#9ca3af" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="60" y="322" fill="#9ca3af" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" letter-spacing="1">WEEKS 2–3 · HANDS-ON TRAINING</text>
+      <!-- 4 architect pods -->
+      <rect x="60"  y="330" width="120" height="90" rx="8" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1"/>
+      <text x="120" y="353" text-anchor="middle" fill="#5b21b6" font-family="DM Sans,sans-serif" font-size="12" font-weight="600">Architect 1</text>
+      <text x="120" y="370" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">7–8 champions</text>
+      <text x="120" y="388" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">Code gen &amp;</text>
+      <text x="120" y="404" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">unit tests</text>
+
+      <rect x="196" y="330" width="120" height="90" rx="8" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1"/>
+      <text x="256" y="353" text-anchor="middle" fill="#5b21b6" font-family="DM Sans,sans-serif" font-size="12" font-weight="600">Architect 2</text>
+      <text x="256" y="370" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">7–8 champions</text>
+      <text x="256" y="388" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">PR reviews &amp;</text>
+      <text x="256" y="404" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">automation</text>
+
+      <rect x="332" y="330" width="120" height="90" rx="8" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1"/>
+      <text x="392" y="353" text-anchor="middle" fill="#5b21b6" font-family="DM Sans,sans-serif" font-size="12" font-weight="600">Architect 3</text>
+      <text x="392" y="370" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">7–8 champions</text>
+      <text x="392" y="388" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">GitHub</text>
+      <text x="392" y="404" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">workflows</text>
+
+      <rect x="468" y="330" width="120" height="90" rx="8" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1"/>
+      <text x="528" y="353" text-anchor="middle" fill="#5b21b6" font-family="DM Sans,sans-serif" font-size="12" font-weight="600">Architect 4</text>
+      <text x="528" y="370" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">7–8 champions</text>
+      <text x="528" y="388" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">Test case &amp;</text>
+      <text x="528" y="404" text-anchor="middle" fill="#7c3aed" font-family="DM Sans,sans-serif" font-size="10">STLC coverage</text>
+
+      <!-- Arrow to cross-pod -->
+      <line x1="340" y1="420" x2="340" y2="444" stroke="#9ca3af" stroke-width="1" marker-end="url(#arr)"/>
+      <!-- Cross-pod -->
+      <rect x="60" y="444" width="560" height="44" rx="8" fill="#f0fdfa" stroke="#99f6e4" stroke-width="1"/>
+      <text x="340" y="462" text-anchor="middle" fill="#065f46" font-family="DM Sans,sans-serif" font-size="13" font-weight="600">Cross-pod knowledge sharing</text>
+      <text x="340" y="478" text-anchor="middle" fill="#0d9488" font-family="DM Sans,sans-serif" font-size="11">Champions connect across pods — best practices spread org-wide</text>
+      <!-- Arrow to week 4 -->
+      <line x1="340" y1="488" x2="340" y2="512" stroke="#9ca3af" stroke-width="1" marker-end="url(#arr)"/>
+      <!-- Week 4 -->
+      <text x="60" y="530" fill="#9ca3af" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" letter-spacing="1">WEEK 4</text>
+      <rect x="60" y="534" width="560" height="52" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="1"/>
+      <text x="340" y="556" text-anchor="middle" fill="#78350f" font-family="DM Sans,sans-serif" font-size="13" font-weight="600">Independent practice and certification</text>
+      <text x="340" y="574" text-anchor="middle" fill="#d97706" font-family="DM Sans,sans-serif" font-size="11">Champions run real tasks with architect oversight — demonstrate mastery</text>
+      <!-- Arrow to outcome -->
+      <line x1="340" y1="586" x2="340" y2="610" stroke="#9ca3af" stroke-width="1" marker-end="url(#arr)"/>
+      <!-- Outcome -->
+      <rect x="60" y="610" width="560" height="52" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"/>
+      <text x="340" y="632" text-anchor="middle" fill="#14532d" font-family="DM Sans,sans-serif" font-size="13" font-weight="600">Day 30 — 30 certified pod champions</text>
+      <text x="340" y="650" text-anchor="middle" fill="#059669" font-family="DM Sans,sans-serif" font-size="11">Ready to cascade AI training and GitHub workflows to their teams</text>
+      <!-- Legend -->
+      <rect x="60" y="686" width="560" height="50" rx="8" fill="none" stroke="#e2e5ea" stroke-width="1" stroke-dasharray="4 3"/>
+      <text x="80" y="706" fill="#9ca3af" font-family="DM Sans,sans-serif" font-size="10" font-weight="600">LEGEND</text>
+      <rect x="130" y="698" width="10" height="10" rx="2" fill="#bfdbfe"/>
+      <text x="146" y="707" fill="#6b7280" font-family="DM Sans,sans-serif" font-size="10">Architect-led</text>
+      <rect x="230" y="698" width="10" height="10" rx="2" fill="#ddd6fe"/>
+      <text x="246" y="707" fill="#6b7280" font-family="DM Sans,sans-serif" font-size="10">Hands-on pods</text>
+      <rect x="345" y="698" width="10" height="10" rx="2" fill="#99f6e4"/>
+      <text x="361" y="707" fill="#6b7280" font-family="DM Sans,sans-serif" font-size="10">Collaborative</text>
+      <rect x="445" y="698" width="10" height="10" rx="2" fill="#fde68a"/>
+      <text x="461" y="707" fill="#6b7280" font-family="DM Sans,sans-serif" font-size="10">Certification</text>
+      <rect x="530" y="698" width="10" height="10" rx="2" fill="#bbf7d0"/>
+      <text x="546" y="707" fill="#6b7280" font-family="DM Sans,sans-serif" font-size="10">Outcome</text>
+      <text x="340" y="727" text-anchor="middle" fill="#9ca3af" font-family="DM Sans,sans-serif" font-size="10">Pre-phase (days 1–10) + 30-day plan = ~40 days total</text>
+    </svg>
+  </div>
+
+  <!-- ARCHITECT ASSIGNMENTS -->
+  <div class="section-title">Architect assignments</div>
+  <div class="arch-grid">
+    <div class="arch-card">
+      <div class="arch-avatar" style="background:#2563eb">A1</div>
+      <div class="arch-name">Architect 1</div>
+      <div class="arch-role">To be assigned</div>
+      <div class="arch-stat">7–8</div>
+      <div class="arch-stat-label">pod champions</div>
+      <div class="arch-focus">
+        <div class="arch-focus-title">Focus areas</div>
+        <ul>
+          <li><span class="focus-dot" style="background:#d97706"></span>Test case generation &amp; STLC coverage</li>
+          <li><span class="focus-dot" style="background:#7c3aed"></span>PR reviews &amp; automation scripts</li>
+          <li><span class="focus-dot" style="background:#0d9488"></span>GitHub workflows &amp; runner strategy</li>
+          <li><span class="focus-dot" style="background:#2563eb"></span>Code validation, report creation &amp; analysis</li>
+        </ul>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-avatar" style="background:#7c3aed">A2</div>
+      <div class="arch-name">Architect 2</div>
+      <div class="arch-role">To be assigned</div>
+      <div class="arch-stat">7–8</div>
+      <div class="arch-stat-label">pod champions</div>
+      <div class="arch-focus">
+        <div class="arch-focus-title">Focus areas</div>
+        <ul>
+          <li><span class="focus-dot" style="background:#d97706"></span>Test case generation &amp; STLC coverage</li>
+          <li><span class="focus-dot" style="background:#7c3aed"></span>PR reviews &amp; automation scripts</li>
+          <li><span class="focus-dot" style="background:#0d9488"></span>GitHub workflows &amp; runner strategy</li>
+          <li><span class="focus-dot" style="background:#2563eb"></span>Code validation, report creation &amp; analysis</li>
+        </ul>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-avatar" style="background:#0d9488">A3</div>
+      <div class="arch-name">Architect 3</div>
+      <div class="arch-role">To be assigned</div>
+      <div class="arch-stat">7–8</div>
+      <div class="arch-stat-label">pod champions</div>
+      <div class="arch-focus">
+        <div class="arch-focus-title">Focus areas</div>
+        <ul>
+          <li><span class="focus-dot" style="background:#d97706"></span>Test case generation &amp; STLC coverage</li>
+          <li><span class="focus-dot" style="background:#7c3aed"></span>PR reviews &amp; automation scripts</li>
+          <li><span class="focus-dot" style="background:#0d9488"></span>GitHub workflows &amp; runner strategy</li>
+          <li><span class="focus-dot" style="background:#2563eb"></span>Code validation, report creation &amp; analysis</li>
+        </ul>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-avatar" style="background:#d97706">A4</div>
+      <div class="arch-name">Architect 4</div>
+      <div class="arch-role">To be assigned</div>
+      <div class="arch-stat">7–8</div>
+      <div class="arch-stat-label">pod champions</div>
+      <div class="arch-focus">
+        <div class="arch-focus-title">Focus areas</div>
+        <ul>
+          <li><span class="focus-dot" style="background:#d97706"></span>Test case generation &amp; STLC coverage</li>
+          <li><span class="focus-dot" style="background:#7c3aed"></span>PR reviews &amp; automation scripts</li>
+          <li><span class="focus-dot" style="background:#0d9488"></span>GitHub workflows &amp; runner strategy</li>
+          <li><span class="focus-dot" style="background:#2563eb"></span>Code validation, report creation &amp; analysis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section-title">Week-by-week breakdown</div>
+  <div class="wbw-grid">
+
+    <div class="wbw-card">
+      <div class="wbw-header" style="border-left-color:#2563eb">
+        <div class="wbw-meta">
+          <span class="wbw-phase" style="background:#eff6ff;color:#1d4ed8">Pre-phase</span>
+          <span class="wbw-days">Days 1–10</span>
+        </div>
+        <div class="wbw-title">Architect preparation &amp; champion identification</div>
+        <div class="wbw-desc">Architects complete foundational training before the 30-day plan begins. In parallel, pod QA Managers identify and nominate champions based on defined criteria.</div>
+      </div>
+      <div class="wbw-body">
+        <div class="wbw-col">
+          <div class="wbw-col-title">Architect training</div>
+          <ul class="wbw-list">
+            <li>Deep dive into GitHub Actions and workflow YAML structure</li>
+            <li>QA STLC phase mapping — unit, integration, regression, release gates</li>
+            <li>Runner types — hosted vs self-hosted, configuration and sizing</li>
+            <li>Workflow triggers, caching strategies, and artifact management</li>
+            <li>Hands-on creation of sample QA pipeline per STLC phase</li>
+          </ul>
+        </div>
+        <div class="wbw-col">
+          <div class="wbw-col-title">Champion selection (parallel)</div>
+          <ul class="wbw-list">
+            <li>Architects define and share selection criteria with all QA Managers</li>
+            <li>Each pod QA Manager nominates 1–2 champions from their team</li>
+            <li>Nominations reviewed and confirmed — target 30 champions total</li>
+            <li>Champion roster published and shared with all architects</li>
+            <li>Champions informed of plan, dates, and expectations</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wbw-footer">
+        <span class="wbw-outcome">&#10003; Outcome: 4 trained architects + 30 identified champions ready to begin</span>
+      </div>
+    </div>
+
+    <div class="wbw-card">
+      <div class="wbw-header" style="border-left-color:#6366f1">
+        <div class="wbw-meta">
+          <span class="wbw-phase" style="background:#eef2ff;color:#3730a3">Week 1</span>
+          <span class="wbw-days">Days 11–17</span>
+        </div>
+        <div class="wbw-title">Onboarding and foundations</div>
+        <div class="wbw-desc">All 30 champions come together for group sessions led by the 4 architects. Focus is on establishing a shared baseline — tools, goals, and ways of working.</div>
+      </div>
+      <div class="wbw-body">
+        <div class="wbw-col">
+          <div class="wbw-col-title">Sessions and setup</div>
+          <ul class="wbw-list">
+            <li>Kickoff session — plan walkthrough, goals, and success criteria</li>
+            <li>realpage-powerup setup verification for all 30 champions</li>
+            <li>Claude access confirmed and local environment validated</li>
+            <li>Intro to AI agents — user story evaluation, test case generation, PR analyzer</li>
+            <li>Overview of GitHub workflow structure and QA STLC alignment</li>
+          </ul>
+        </div>
+        <div class="wbw-col">
+          <div class="wbw-col-title">Focus areas introduced</div>
+          <ul class="wbw-list">
+            <li>Test case generation &amp; STLC coverage — concepts and live demo</li>
+            <li>PR reviews &amp; automation scripts — live walkthrough</li>
+            <li>GitHub workflows &amp; runner strategy — architecture overview</li>
+            <li>Code validation, report creation &amp; analysis — tooling intro</li>
+            <li>Q&amp;A and feedback collection from all champions</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wbw-footer">
+        <span class="wbw-outcome">&#10003; Outcome: All 30 champions onboarded, tools ready, baseline knowledge established</span>
+      </div>
+    </div>
+
+    <div class="wbw-card">
+      <div class="wbw-header" style="border-left-color:#7c3aed">
+        <div class="wbw-meta">
+          <span class="wbw-phase" style="background:#f5f3ff;color:#5b21b6">Week 2</span>
+          <span class="wbw-days">Days 18–24</span>
+        </div>
+        <div class="wbw-title">Hands-on training — pod group sessions</div>
+        <div class="wbw-desc">Each architect takes their assigned ~7–8 champions through intensive, product-specific training. Sessions are practical — champions work on real tasks from their own pods.</div>
+      </div>
+      <div class="wbw-body">
+        <div class="wbw-col">
+          <div class="wbw-col-title">Training activities</div>
+          <ul class="wbw-list">
+            <li>Test case generation using Claude — writing, reviewing, and refining TCs</li>
+            <li>Automating PR pre-reviews with AI — hands-on PR walkthroughs</li>
+            <li>Building GitHub workflows for unit and integration phases</li>
+            <li>Code validation techniques — static analysis and reporting outputs</li>
+            <li>Architect-guided pair sessions on real sprint work</li>
+          </ul>
+        </div>
+        <div class="wbw-col">
+          <div class="wbw-col-title">Cross-pod activities</div>
+          <ul class="wbw-list">
+            <li>Mid-week cross-pod sync — champions share early learnings</li>
+            <li>Best practice examples collected and shared in shared repo</li>
+            <li>Blocker resolution — architects address common challenges</li>
+            <li>Champions begin documenting their pod-specific workflows</li>
+            <li>Peer review of each other's test cases and automation scripts</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wbw-footer">
+        <span class="wbw-outcome">&#10003; Outcome: Champions hands-on with all 4 focus areas, initial workflows drafted</span>
+      </div>
+    </div>
+
+    <div class="wbw-card">
+      <div class="wbw-header" style="border-left-color:#0d9488">
+        <div class="wbw-meta">
+          <span class="wbw-phase" style="background:#f0fdfa;color:#065f46">Week 3</span>
+          <span class="wbw-days">Days 25–31</span>
+        </div>
+        <div class="wbw-title">Deep dives and applied practice</div>
+        <div class="wbw-desc">Champions move from guided learning to applied practice. Architects shift to a coaching role — reviewing work, unblocking, and pushing champions toward independent execution.</div>
+      </div>
+      <div class="wbw-body">
+        <div class="wbw-col">
+          <div class="wbw-col-title">Applied work</div>
+          <ul class="wbw-list">
+            <li>Champions complete end-to-end GitHub workflow for their pod</li>
+            <li>Full STLC pipeline built — from unit tests to release gate</li>
+            <li>Automation scripts reviewed, refined, and committed to repo</li>
+            <li>Report creation — champions generate and present analysis outputs</li>
+            <li>Runner configuration completed — hosted or self-hosted as applicable</li>
+          </ul>
+        </div>
+        <div class="wbw-col">
+          <div class="wbw-col-title">Collaboration and review</div>
+          <ul class="wbw-list">
+            <li>Cross-pod showcase — each champion presents their workflow</li>
+            <li>Peer feedback sessions facilitated by architects</li>
+            <li>Edge case scenarios tested — failure handling, retries, alerts</li>
+            <li>Champions begin preparing training material for their own pods</li>
+            <li>Progress check — architects assess readiness for certification</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wbw-footer">
+        <span class="wbw-outcome">&#10003; Outcome: Full workflows operational, champions ready for independent execution</span>
+      </div>
+    </div>
+
+    <div class="wbw-card">
+      <div class="wbw-header" style="border-left-color:#059669">
+        <div class="wbw-meta">
+          <span class="wbw-phase" style="background:#f0fdf4;color:#14532d">Week 4</span>
+          <span class="wbw-days">Days 32–40</span>
+        </div>
+        <div class="wbw-title">Independent practice and certification</div>
+        <div class="wbw-desc">Champions operate independently with light-touch architect oversight. The week culminates in certification sign-off and each champion running their first team training session.</div>
+      </div>
+      <div class="wbw-body">
+        <div class="wbw-col">
+          <div class="wbw-col-title">Certification tasks</div>
+          <ul class="wbw-list">
+            <li>Independent delivery of a complete QA workflow with no architect guidance</li>
+            <li>Live demonstration of all 4 focus areas to their architect</li>
+            <li>Submit documented workflow and training material for sign-off</li>
+            <li>Architect assessment — quality, coverage, and knowledge check</li>
+            <li>Formal certification sign-off by assigned architect</li>
+          </ul>
+        </div>
+        <div class="wbw-col">
+          <div class="wbw-col-title">Cascade to pods</div>
+          <ul class="wbw-list">
+            <li>Each champion runs a training session with their own pod team</li>
+            <li>Pod teams onboarded to realpage-powerup and AI agents</li>
+            <li>Champion establishes themselves as go-to AI enablement contact</li>
+            <li>Feedback loop opened — champions report back to architects monthly</li>
+            <li>Continuous improvement cycle kicks off across all pods</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wbw-footer" style="background:#f0fdf4;border-top-color:#bbf7d0">
+        <span class="wbw-outcome" style="color:#065f46">&#10003; Outcome: 30 certified champions — AI and GitHub workflow adoption cascading org-wide</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SELECTION CRITERIA TABLE -->
+  <div class="section-title">Champion selection criteria</div>
+  <div class="criteria-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Criteria</th>
+          <th>Description</th>
+          <th>What good looks like</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>QA knowledge &amp; activities</strong></td>
+          <td>Strong, hands-on understanding of the full QA lifecycle — test planning, test case design, execution, defect management, and release validation across STLC phases</td>
+          <td>Has independently owned QA activities end-to-end within their pod; familiar with unit, integration, regression, and UAT phases</td>
+          <td><span class="priority-badge p-high">Must have</span></td>
+        </tr>
+        <tr>
+          <td><strong>AI tooling &amp; agent usage</strong></td>
+          <td>Actively using or demonstrably exploring AI agents for QA tasks — including user story evaluation, test case generation, PR impact analysis, and automation script creation</td>
+          <td>Has used one or more RealPage AI agents in their day-to-day QA work; understands when and how to invoke agents effectively</td>
+          <td><span class="priority-badge p-high">Must have</span></td>
+        </tr>
+        <tr>
+          <td><strong>Claude proficiency</strong></td>
+          <td>Well-versed in using Claude for QA tasks — prompt crafting, iterating on outputs, using Claude for code reviews, test case refinement, and analysis</td>
+          <td>Regularly uses Claude beyond basic queries; understands context-setting, multi-turn prompting, and applying Claude to real QA scenarios</td>
+          <td><span class="priority-badge p-high">Must have</span></td>
+        </tr>
+        <tr>
+          <td><strong>Skills &amp; agent framework awareness</strong></td>
+          <td>Familiar with the concept of skills and agent frameworks — understands how agents are structured, triggered, and how outputs are consumed within the QA process</td>
+          <td>Has explored or used realpage-powerup skills; can articulate the difference between a skill and an agent and where each fits in the workflow</td>
+          <td><span class="priority-badge p-high">Must have</span></td>
+        </tr>
+        <tr>
+          <td><strong>Pod influence &amp; communication</strong></td>
+          <td>Respected within their pod and capable of driving adoption — able to teach, document, and mentor peers on AI tooling and QA best practices</td>
+          <td>Goes-to person in the pod for QA questions; proactively shares knowledge and can confidently run internal sessions</td>
+          <td><span class="priority-badge p-med">Important</span></td>
+        </tr>
+        <tr>
+          <td><strong>Availability &amp; commitment</strong></td>
+          <td>Can dedicate meaningful time during the 30-day plan without significant sprint conflicts — willing to invest in learning and then cascading back to the team</td>
+          <td>Sprint capacity partially freed up or confirmed available; has manager sign-off for participation</td>
+          <td><span class="priority-badge p-med">Important</span></td>
+        </tr>
+        <tr>
+          <td><strong>GitHub workflows knowledge</strong></td>
+          <td>Basic to intermediate understanding of GitHub Actions, workflow YAML, CI/CD pipeline concepts, and how QA fits into the automated pipeline</td>
+          <td>Has created or modified a GitHub workflow; understands triggers, jobs, and steps — full expertise not required but familiarity is a strong advantage</td>
+          <td><span class="priority-badge p-low">Good to have</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- UPDATES / NOTES SECTION -->
+  <div class="section-title">Updates and notes</div>
+  <div class="updates-section">
+    <div class="updates-header">
+      <h3>Plan updates</h3>
+      <button class="add-btn" onclick="openModal()">+ Add update</button>
+    </div>
+    <div class="updates-list" id="updates-list">
+      <div class="update-item">
+        <span class="update-date">May 27</span>
+        <span class="update-tag" style="background:#fff7ed;color:#9a3412;border:1px solid #fed7aa">Prerequisite · Critical</span>
+        <div class="update-content">
+          <div class="update-title">⛔ WIF authentication pending for service accounts — Claude API</div>
+          <div class="update-desc">Workload Identity Federation (WIF) authentication for service accounts connecting to the Claude API is yet to be configured. This is a required setup for GitHub workflows to securely invoke the Claude API without static credentials. <strong>Plan cannot move forward without this.</strong> Needs architect and infra alignment to complete.</div>
+        </div>
+      </div>
+      <div class="update-item">
+        <span class="update-date">May 27</span>
+        <span class="update-tag" style="background:#fff7ed;color:#9a3412;border:1px solid #fed7aa">Prerequisite · Critical</span>
+        <div class="update-content">
+          <div class="update-title">⛔ TFS connectivity agent awaiting safe connection from GitHub workflows</div>
+          <div class="update-desc">The TFS connectivity agent required to bridge GitHub workflows with existing TFS repositories is pending a safe, verified connection setup. GitHub migration is in progress and this agent must be securely validated before workflows can interact with TFS-hosted repos. <strong>Full pipeline integration cannot proceed without this being in place.</strong></div>
+        </div>
+      </div>
+      <div class="update-item">
+        <span class="update-date">May 27</span>
+        <span class="update-tag" style="background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe">Plan created</span>
+        <div class="update-content">
+          <div class="update-title">Initial 30-day champions plan defined</div>
+          <div class="update-desc">Plan created with pre-phase for architect training on GitHub workflows and QA STLC phases. 4 architects will train ~30 pod champions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ADD UPDATE MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <h3>Add plan update</h3>
+    <div class="form-row">
+      <label class="form-label">Title</label>
+      <input class="form-input" id="upd-title" placeholder="e.g. Architects identified and confirmed" />
+    </div>
+    <div class="form-row">
+      <label class="form-label">Category</label>
+      <select class="form-select" id="upd-cat">
+        <option value="milestone">Milestone</option>
+        <option value="update">Update</option>
+        <option value="blocker">Blocker</option>
+        <option value="note">Note</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="form-label">Details</label>
+      <textarea class="form-textarea" id="upd-desc" placeholder="Add more context or details..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" onclick="saveUpdate()">Save update</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const catStyles = {
+  milestone: { bg:'#f0fdf4', color:'#166534', border:'#bbf7d0', label:'Milestone' },
+  update:    { bg:'#eff6ff', color:'#1d4ed8', border:'#bfdbfe', label:'Update' },
+  blocker:   { bg:'#fef2f2', color:'#991b1b', border:'#fecaca', label:'Blocker' },
+  note:      { bg:'#fffbeb', color:'#92400e', border:'#fde68a', label:'Note' },
+};
+
+function openModal() {
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('upd-title').focus();
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.getElementById('upd-title').value = '';
+  document.getElementById('upd-desc').value = '';
+  document.getElementById('upd-cat').value = 'milestone';
+}
+function saveUpdate() {
+  const title = document.getElementById('upd-title').value.trim();
+  const desc  = document.getElementById('upd-desc').value.trim();
+  const cat   = document.getElementById('upd-cat').value;
+  if (!title) { document.getElementById('upd-title').focus(); return; }
+  const s = catStyles[cat];
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('en-GB', { day:'numeric', month:'short' });
+  const item = document.createElement('div');
+  item.className = 'update-item';
+  item.innerHTML = `
+    <span class="update-date">${dateStr}</span>
+    <span class="update-tag" style="background:${s.bg};color:${s.color};border:1px solid ${s.border}">${s.label}</span>
+    <div class="update-content">
+      <div class="update-title">${title}</div>
+      ${desc ? `<div class="update-desc">${desc}</div>` : ''}
+    </div>
+    <div class="update-actions">
+      <button class="icon-btn" title="Delete" onclick="this.closest('.update-item').remove()">✕</button>
+    </div>`;
+  document.getElementById('updates-list').prepend(item);
+  closeModal();
+}
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>
